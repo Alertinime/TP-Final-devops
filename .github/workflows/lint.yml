@@ -28,7 +28,7 @@ jobs:
       uses: golangci/golangci-lint-action@v2
       with:
         version: latest
-        args: --enable-all --out-format=colored-line-number
+        args: --enable-all
         skip-pkg-cache: true 
 
     - name: Run golangci-lint
