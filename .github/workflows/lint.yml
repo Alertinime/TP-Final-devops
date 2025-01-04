@@ -29,6 +29,10 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: vote-api
+
     timeout-minutes: 3
     steps:
       - uses: actions/checkout@v4
