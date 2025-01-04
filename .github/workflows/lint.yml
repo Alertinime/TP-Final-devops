@@ -29,7 +29,9 @@ jobs:
 
     - name: Install dependencies
       run: go mod tidy
-      
+    - name: Verify Go version
+      run: go version
+
     - name: Print working directory and list files
       run: |
         pwd
