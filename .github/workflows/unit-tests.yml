@@ -11,9 +11,11 @@ on:
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
-  defaults:
-    run:
-      working-directory: web-clien
+
+    defaults:
+      run:
+        working-directory: web-client
+
     steps:
     - uses: actions/checkout@v2
 
