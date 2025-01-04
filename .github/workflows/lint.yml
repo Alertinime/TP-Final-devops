@@ -29,6 +29,11 @@ jobs:
 
     - name: Install dependencies
       run: go mod tidy
+      
+    - name: Print working directory and list files
+      run: |
+        pwd
+        ls -alh
 
     - name: Linter
       uses: golangci/golangci-lint-action@v2
