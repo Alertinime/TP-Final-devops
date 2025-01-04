@@ -35,7 +35,8 @@ jobs:
       with:
         version: latest
         args: --enable-all
-        cache: false  
+        cache: false
+        skip-pkg-cache: true
 
     - name: Check Formatter
       run: go fmt ./...
