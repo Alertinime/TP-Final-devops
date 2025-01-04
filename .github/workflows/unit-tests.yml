@@ -22,12 +22,15 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: ' 20' 
+        node-version: '20' 
 
     - name: Install Yarn and dependencies
       run: |
         npm install -g yarn
         yarn install
+
+    - name: Install Playwright dependencies
+      run: sudo yarn playwright install-deps
 
     - name: Install Playwright
       run: npx playwright install
