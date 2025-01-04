@@ -1,4 +1,4 @@
-name: Go API Tests
+name: Go API Linting
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
 
     defaults:
@@ -24,11 +24,17 @@ jobs:
       with:
         go-version: '1.23'
 
+    - name: Clean Golangci-Lint Cache
+      run: sudo rm -rf ~/.cache/golangci-lint
+
     - name: Install dependencies
       run: go mod tidy
 
-    - name: Test
-      run: go test ./...
+    - name: Linter
+      uses: golangci/golangci-lint-action@v2
+      with:
+        version: latest
+        args: --enable-all
 
-    - name: Build
-      run: go build -o vote-api
+    - name: Check Formatter
+      run: go fmt ./...
