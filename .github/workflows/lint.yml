@@ -11,6 +11,10 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: vote-api
+
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -25,10 +29,11 @@ jobs:
       with:
         version: latest
         args: --enable-all --out-format=colored-line-number
-        skip-pkg-cache: true  
+        skip-pkg-cache: true 
 
     - name: Run golangci-lint
       run: golangci-lint run --timeout 5m
 
     - name: Check code formatting
       run: go fmt ./...
+
